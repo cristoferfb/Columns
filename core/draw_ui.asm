@@ -1,7 +1,7 @@
 draw_ui:
     mov ah,02h   ; Posicionamos el cursor
-    mov dh,6     ; en la esquina superior
-    mov dl,17    ; izquierda del campo de
+    mov dh,5     ; en la esquina superior
+    mov dl,16    ; izquierda del campo de
     mov bh,0x0   ; juego.
     int 10h
 
@@ -46,8 +46,8 @@ draw_ui:
     call draw_hor_line
 
     mov ah,02h   ; Posicionamos el cursor
-    mov dh,6     ; en la esquina superior
-    mov dl,18    ; izquierda del campo de
+    mov dh,5     ; en la esquina superior
+    mov dl,17    ; izquierda del campo de
     mov bh,0x0   ; juego.
     int 10h
 
