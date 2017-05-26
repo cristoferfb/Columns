@@ -4,6 +4,8 @@ game_loop:
 
     call check_key
 
-    call procedure_delay
+    call gravity
+
+    call next_frame
 
     jmp game_loop

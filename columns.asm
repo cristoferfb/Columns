@@ -6,13 +6,15 @@ segment .text
 
 %include "main.asm"
 
+%include "core/move.asm"
+%include "core/frame.asm"
 %include "core/random.asm"
+%include "core/gravity.asm"
 %include "core/draw_ui.asm"
 %include "core/start_g.asm"
 %include "core/g_block.asm"
 %include "core/game_lo.asm"
 %include "core/draw_bl.asm"
-%include "core/move.asm"
 %include "core/check_k.asm"
 
 quit:
@@ -24,6 +26,11 @@ segment .data
     delay_initial                     db 0  ; el generador de numeros
     random_number                     db 0  ; aleatorios.
     delay_centiseconds                db 5  ;
+
+    frame_count db 0
+    frame_gravi db 0
+
+    speed db 0
 
     block_color_1 db 0  ; Estos seran los colores
     block_color_2 db 0  ; que componen a un bloque
