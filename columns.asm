@@ -23,7 +23,7 @@ segment .data
     delay_stopping_point_centiseconds db 0  ; Variables necesarias para
     delay_initial                     db 0  ; el generador de numeros
     random_number                     db 0  ; aleatorios.
-    delay_centiseconds                db 0  ;
+    delay_centiseconds                db 5  ;
 
     block_color_1 db 0  ; Estos seran los colores
     block_color_2 db 0  ; que componen a un bloque

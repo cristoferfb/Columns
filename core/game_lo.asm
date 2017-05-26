@@ -4,4 +4,6 @@ game_loop:
 
     call check_key
 
+    call procedure_delay
+
     jmp game_loop
