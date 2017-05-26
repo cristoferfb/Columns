@@ -12,6 +12,7 @@ Master System que se ve a continuación:
   - De lo anterior se desprende que no hay graficos solo caracteres
   - El espacio de juego es de 6x13
   - Cumple las reglas clasicas del juego
+  - Se a utilizado NASM como ensamblador
 
 ## Ensamblado
 
