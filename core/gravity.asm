@@ -1,25 +1,25 @@
 gravity:
-    mov al,[frame_count]
-    mov ah,[frame_gravi]
+    mov al,[frame_count]  ; Obtenemos el frame actual
+    mov ah,[frame_gravi]  ; Obtenemos el frame en que se debe aplicar gravedad
 
     cmp al,ah
-    jg do_gravity
+    jg do_gravity         ; Comprobamos si devemos efectuar gravedad
 
     ret
 
 do_gravity:
-    mov ah,[speed]
+    mov ah,[slowness]     ; Seteamos la siguiente vez
+                          ; en la que deveremos aplicar
+    add al,ah             ; gravedad segun la variable
+    mov [frame_gravi],al  ; slowness
 
-    add al,ah
-    mov [frame_gravi],al
+    mov al,[block_y]      ; Obtenemos la posicion actual en y
 
-    mov al,[block_y]
+    cmp al,18             ; Comprobamos que no estemos en el
+    je no_gravity         ; limite de la pantalla
 
-    cmp al,18
-    je no_gravity
-
-    inc al
-    mov [block_y],al
+    inc al                ; Procedemos a hacer efectiva la
+    mov [block_y],al      ; gravedad
 
     ret
 

@@ -62,6 +62,7 @@ draw_block:
     mov cx,1
     int 10h
 
+    ; Ajustamos las posiciones cartecianas
     mov al,[block_x]
     mov [oblock_x],al
 

@@ -8,29 +8,31 @@ segment .text
 
 %include "core/move.asm"
 %include "core/frame.asm"
-%include "core/random.asm"
+%include "core/delay.asm"
+%include "core/randomn.asm"
 %include "core/gravity.asm"
-%include "core/draw_ui.asm"
-%include "core/start_g.asm"
-%include "core/g_block.asm"
-%include "core/game_lo.asm"
-%include "core/draw_bl.asm"
-%include "core/check_k.asm"
+%include "core/drawGame.asm"
+%include "core/startGam.asm"
+%include "core/genBlock.asm"
+%include "core/gameLoop.asm"
+%include "core/drawBloc.asm"
+%include "core/checkKey.asm"
 
 quit:
-    mov  ah,00h      ; Terminamos la
-    int  21h         ; aplicacion
+    mov  ah,00h  ; Terminamos la
+    int  21h     ; aplicacion
 
 segment .data
     delay_stopping_point_centiseconds db 0  ; Variables necesarias para
-    delay_initial                     db 0  ; el generador de numeros
-    random_number                     db 0  ; aleatorios.
-    delay_centiseconds                db 5  ;
+    delay_initial                     db 0  ; generar un retraso o
+    random_number                     db 0  ; 'sleep' del sistema
 
-    frame_count db 0
-    frame_gravi db 0
+    delay_centiseconds db 5  ; Tiempo de duracion de un frame
 
-    speed db 0
+    frame_count db 0  ; Contador de frames
+    frame_gravi db 0  ; frame en el que se debe aplicar gravedad
+
+    slowness db 10  ; lentitud a la que va la gavedad
 
     block_color_1 db 0  ; Estos seran los colores
     block_color_2 db 0  ; que componen a un bloque
@@ -46,4 +48,4 @@ segment .data
     oblock_x db 0  ; Posicion anterior de
     oblock_y db 0  ; la cabeza del bloque actual
 
-    exist_block db 0 ; Para saber si se esta controlando un bloque
+    exist_block db 0  ; Para saber si se esta controlando un bloque
