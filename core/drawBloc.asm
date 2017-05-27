@@ -70,3 +70,33 @@ draw_block:
     mov [oblock_y],al
 
     ret
+
+draw_next:
+    mov ah,02h
+    mov dh,8
+    mov dl,25
+    int 10h
+
+    mov ah,09h
+    mov al,0xB2
+    mov bl,[block_color_3]
+    mov cx,1
+    int 10h
+
+    mov ah,02h
+    inc dh
+    int 10h
+
+    mov ah,09h
+    mov bl,[block_color_2]
+    int 10h
+
+    mov ah,02h
+    inc dh
+    int 10h
+
+    mov ah,09h
+    mov bl,[block_color_1]
+    int 10h
+
+    ret

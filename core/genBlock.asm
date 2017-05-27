@@ -39,3 +39,15 @@ use_block:
 
     pop ax
     ret
+
+new_block:
+    mov al,18            ; Asignamos la posicion
+    mov [block_x],al     ; inicial del bloque
+    mov [oblock_x],al
+
+    mov al,8
+    mov [block_y],al
+    mov [oblock_y],al
+
+
+    ret

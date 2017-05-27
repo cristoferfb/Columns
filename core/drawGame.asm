@@ -2,7 +2,7 @@ draw_ui:
     mov ah,02h   ; Posicionamos el cursor
     mov dh,5     ; en la esquina superior
     mov dl,16    ; izquierda del campo de
-    mov bh,0x0   ; juego.
+    xor bh,bh    ; juego.
     int 10h
 
     mov ah,02h   ; Imprimimos la esquina

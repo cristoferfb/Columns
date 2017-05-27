@@ -11,6 +11,7 @@ segment .text
 %include "core/delay.asm"
 %include "core/randomn.asm"
 %include "core/gravity.asm"
+%include "core/collChec.asm"
 %include "core/drawGame.asm"
 %include "core/startGam.asm"
 %include "core/genBlock.asm"
@@ -32,6 +33,8 @@ segment .data
     frame_count db 0  ; Contador de frames
     frame_gravi db 0  ; frame en el que se debe aplicar gravedad
 
+    collision db 0  ; Para saber si se esta colisionando con algo
+
     slowness db 10  ; lentitud a la que va la gavedad
 
     block_color_1 db 0  ; Estos seran los colores
@@ -49,3 +52,7 @@ segment .data
     oblock_y db 0  ; la cabeza del bloque actual
 
     exist_block db 0  ; Para saber si se esta controlando un bloque
+
+    ; Lo que sigue solo son los textos del juego
+
+    msg_point db "Puntaje:$"
