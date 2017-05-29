@@ -1,8 +1,8 @@
 [bits 16]
-org  0x100
+org  100h
+
 
 segment .text
-    global main
 
 %include "main.asm"
 
@@ -55,4 +55,4 @@ segment .data
 
     ; Lo que sigue solo son los textos del juego
 
-    msg_point db "Puntaje:$"
+    msg_next db 'Siguiente:','$'

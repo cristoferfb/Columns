@@ -1,4 +1,13 @@
 draw_ui:
+    mov ah,02h
+    xor bh,bh
+    mov dh,6
+    mov dl,25
+    int 10h
+
+    lea si,[msg_next]
+    call draw_text
+
     mov ah,02h   ; Posicionamos el cursor
     mov dh,5     ; en la esquina superior
     mov dl,16    ; izquierda del campo de
@@ -83,5 +92,12 @@ draw_ver_line:    ; Dibuja una linea vertical
     pop bx
     dec bl        ; Hacemos esto bl veces
     jnz draw_ver_line
+
+    ret
+
+draw_text:
+    mov dx,si
+    mov ah,09h
+    int 21h
 
     ret
