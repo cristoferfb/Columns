@@ -1,7 +1,19 @@
 check_coll:
-    mov al,[block_y]
+    mov dh,[block_y]
 
-    cmp al,18
+    cmp dh,18
+    je coll_down ; Si llegamos abajo tenemos que generar un nuevo bloque
+
+    mov ah,02h
+    xor bh,bh
+    inc dh
+    mov dl,[block_x]
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    cmp al,178
     je coll_down
 
     ret
@@ -15,4 +27,8 @@ coll_down:
 
     call new_block
 
-    ret
+    call normalize
+
+    pop ax
+
+    jmp game_loop

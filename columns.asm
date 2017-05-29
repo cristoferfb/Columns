@@ -1,7 +1,6 @@
 [bits 16]
 org  100h
 
-
 segment .text
 
 %include "main.asm"

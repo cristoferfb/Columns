@@ -1,12 +1,4 @@
 draw_ui:
-    mov ah,02h
-    xor bh,bh
-    mov dh,6
-    mov dl,25
-    int 10h
-
-    lea si,[msg_next]
-    call draw_text
 
     mov ah,02h   ; Posicionamos el cursor
     mov dh,5     ; en la esquina superior
@@ -62,6 +54,15 @@ draw_ui:
 
     mov bl,13
     call draw_ver_line
+
+    mov ah,02h
+    xor bh,bh
+    mov dh,6
+    mov dl,25
+    int 10h
+
+    lea si,[msg_next]
+    call draw_text
 
     ret
 

@@ -7,3 +7,11 @@ next_frame:
     mov [frame_count],al  ; actualizamos el contador
 
     ret
+
+normalize:
+
+    xor al,al
+    mov [frame_count],al
+    mov [frame_gravi],al
+
+    ret
