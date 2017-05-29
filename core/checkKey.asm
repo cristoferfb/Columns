@@ -15,7 +15,13 @@ read_character:
     int 21h
     pop ax
 
+    cmp al,'w'
+    je change
+
     cmp al,'s'
+    je down
+
+    cmp al,'d'
     je right
 
     cmp al,'a'

@@ -6,7 +6,7 @@ generate_block:
     call procedure_generate_random_number  ; de una de las secciones de una
                                            ; pieza
     inc al                                 ; Aumentamos su valor en 1 para
-    mov  [block_color_1],al                ; que no salga el "color" negro
+    mov [block_color_1],al                 ; que no salga el "color" negro
 
     call procedure_delay
     mov  bl,0x6
@@ -43,13 +43,23 @@ use_block:
     ret
 
 new_block:
-    mov al,18            ; Asignamos la posicion
-    mov [block_x],al     ; inicial del bloque
-    mov [oblock_x],al
+    mov ah,02h
+    xor bh,bh
+    mov dh,8
+    mov dl,18
+    int 10h
 
-    mov al,8
-    mov [block_y],al
-    mov [oblock_y],al
+    mov ah,08h
+    int 10h
+
+    cmp al,178
+    je quit
+
+    mov [block_x],dl
+    mov [oblock_x],dl
+
+    mov [block_y],dh
+    mov [oblock_y],dh
 
 
     ret
