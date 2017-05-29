@@ -15,13 +15,7 @@ do_gravity:
 
     mov al,[block_y]      ; Obtenemos la posicion actual en y
 
-    cmp al,18             ; Comprobamos que no estemos en el
-    je no_gravity         ; limite de la pantalla
-
     inc al                ; Procedemos a hacer efectiva la
     mov [block_y],al      ; gravedad
 
-    ret
-
-no_gravity:
     ret
