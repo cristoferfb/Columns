@@ -1,4 +1,7 @@
 check_rc:
+    ; Comrobamos las colisiones al
+    ; lado derecho del boque
+
     mov ah,02h
     xor bh,bh
     mov dh,[block_y]
@@ -16,6 +19,8 @@ check_rc:
     ret
 
 check_lc:
+    ; Checkeamos las colisiones al
+    ; lado izquierdo del bloque
     mov ah,02h
     xor bh,bh
     mov dh,[block_y]
@@ -34,10 +39,16 @@ check_lc:
 
 
 check_coll:
+    ; Se checkean las colisiones de
+    ; la parte inferiror del bloque
+
     mov dh,[block_y]
 
+    call fix_ycoll ; Si nos pasamos del limite
+                   ; del juego esto lo arregla
+
     cmp dh,18
-    jge coll_down ; Si llegamos abajo tenemos que generar un nuevo bloque
+    je coll_down ; Si llegamos abajo tenemos que generar un nuevo bloque
 
     mov ah,02h
     xor bh,bh
@@ -53,7 +64,27 @@ check_coll:
 
     ret
 
+fix_ycoll:
+    cmp dh,18
+    jg y_issue
+
+    ret
+
+y_issue:
+    mov dh,18
+    mov [block_y],dh
+    ret
+
 coll_down:
+    pop ax
+    xor cx,cx
+    mov cl,10
+
+    mov al,[collision]
+    cmp al,0
+    je last_move
+
+    call draw_block
 
     call use_block
 
@@ -65,8 +96,17 @@ coll_down:
 
     call normalize
 
-    pop ax
+    xor al,al
+    mov [collision],al
 
+    jmp game_loop
+
+last_move:
+    call procedure_delay
+    loop last_move
+
+    mov al,1
+    mov [collision],al
     jmp game_loop
 
 no_coll:
