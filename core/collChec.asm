@@ -1,5 +1,5 @@
 check_rc:
-    ; Comrobamos las colisiones al
+    ; Checkeamos las colisiones al
     ; lado derecho del boque
 
     mov ah,02h
@@ -38,6 +38,9 @@ check_lc:
     ret
 
 check_down:
+    ; Checkeamos colisiones
+    ; en la parte inferior
+
     mov ah,02h
     xor bh,bh
     mov dh,[block_y]
@@ -56,8 +59,9 @@ check_down:
 
 
 check_coll:
-    ; Se checkean las colisiones de
-    ; la parte inferiror del bloque
+    ; Se checkea colision con la
+    ; parte inferior del campo
+    ; de juego
 
     mov dh,[block_y]
 
@@ -73,43 +77,51 @@ check_coll:
     mov ah,08h
     int 10h
 
-    cmp al,178
-    je coll_down
+    cmp al,178    ; Si tenemos por debajo otra pieza
+    je coll_down  ; tenemos que generar un nuevo bloque
 
     ret
 
 coll_down:
+    ; Este es el proceso que se lleva
+    ; a cabo en el caso de una colision
+    ; de la parte inferior del bloque
+
     pop ax
     xor cx,cx
     mov cl,10
 
-    mov al,[collision]
-    cmp al,0
-    je last_move
+    mov al,[collision]  ; Comprobamos si se le
+    cmp al,0            ; debe otorgar un ultimo
+    je last_move        ; movimiento al jugador
 
-    call draw_block
+    call draw_block     ; Se dibuja el bloque por ultima vez
 
-    call use_block
+    call use_block      ; se asigna el bloque en espera como el actual
 
-    call generate_block
+    call generate_block ; Se genera el siguiente bloque
 
-    call draw_next
+    call draw_next ; Se dibuja el spoiler del siguiente bloque
 
-    call new_block
+    call new_block ; Se dibuja el bloque en su posicion inicial
 
-    call normalize
+    call normalize ; Se reinician los valores para la gravedad
 
-    xor al,al
-    mov [collision],al
+    xor al,al           ; Se reinicia el contador para
+    mov [collision],al  ; una nueva oportunidad
 
     jmp game_loop
 
 last_move:
-    call procedure_delay
-    loop last_move
+    ; Esto le da al jugador un tiempo
+    ; de gracia para realizar un ultimo
+    ; movimiento.
 
-    mov al,1
-    mov [collision],al
+    call procedure_delay  ; Se da algo de tiempo
+    loop last_move        ; al jugador.
+
+    mov al,1              ; Se desactiva la posibilidad
+    mov [collision],al    ; de otro last_move
     jmp game_loop
 
 no_coll:

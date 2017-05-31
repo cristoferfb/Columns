@@ -1,7 +1,6 @@
 generate_block:
 
     call procedure_delay                   ; Generamos un numero aleatorio
-
     mov  bl,0x6                            ; entre [0,5] este sera el color
     call procedure_generate_random_number  ; de una de las secciones de una
                                            ; pieza
@@ -43,6 +42,10 @@ use_block:
     ret
 
 new_block:
+    ; Comprobamos si es posible dibujar
+    ; un nuevo bloque de ser asi
+    ; se asigna su posicion inicial
+
     mov ah,02h
     xor bh,bh
     mov dh,8
@@ -53,7 +56,7 @@ new_block:
     int 10h
 
     cmp al,178
-    je quit
+    je quit    ; De lo contratio game overs
 
     mov [block_x],dl
     mov [oblock_x],dl

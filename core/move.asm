@@ -1,3 +1,7 @@
+; Esto basicamente checkea si es posible realizar
+; un movimiento hacia alguna direccion, de ser posible
+; se modifican las variables correspondientes
+
 down:
     call check_down
 
@@ -40,6 +44,9 @@ no_move:
     ret
 
 change:
+    ; Esto rota los colores
+    ; del bloque actual
+    
     mov al,[cblock_color_1]
     mov ah,[cblock_color_2]
     mov [cblock_color_2],al

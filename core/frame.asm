@@ -9,7 +9,9 @@ next_frame:
     ret
 
 normalize:
-
+    ; Se resetean los valores para
+    ; la gravedad
+    
     xor al,al
     mov [frame_count],al
     mov [frame_gravi],al

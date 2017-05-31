@@ -55,6 +55,8 @@ draw_ui:
     mov bl,13
     call draw_ver_line
 
+    ; Se dibujan los textos del juego
+
     mov ah,02h
     xor bh,bh
     mov dh,6

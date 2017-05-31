@@ -6,7 +6,7 @@ game_loop:
 
     call check_coll  ; Checkeamos colisiones
 
-    call draw_block
+    call draw_block  ; Dibujamos el bloque despues de colisionar
 
     call gravity     ; Provocamos gravedad si se requiere
 

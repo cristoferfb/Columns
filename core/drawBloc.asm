@@ -72,12 +72,16 @@ draw_block:
     ret
 
 draw_next:
+    ; Dibujamos el spoiler
+    ; del siguiente bloque
+    ; que sera generado
+
     mov ah,02h
     xor bh,bh
     mov dh,8
     mov dl,25
     int 10h
-    
+
     mov ah,09h
     mov al,0xB2
     mov bl,[block_color_3]
