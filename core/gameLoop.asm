@@ -1,10 +1,12 @@
 game_loop:
 
-    call draw_block  ; Dibujamos el bloque controlado
-
     call check_key   ; Comprobamos si se presiono alguna tecla
 
+    call draw_block  ; Dibujamos el bloque antes de una posible colision
+
     call check_coll  ; Checkeamos colisiones
+
+    call draw_block
 
     call gravity     ; Provocamos gravedad si se requiere
 

@@ -15,7 +15,13 @@ do_gravity:
 
     mov al,[block_y]      ; Obtenemos la posicion actual en y
 
+    cmp al,18
+    je no_gravity
+
     inc al                ; Procedemos a hacer efectiva la
     mov [block_y],al      ; gravedad
 
+    ret
+
+no_gravity:
     ret

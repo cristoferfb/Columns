@@ -37,15 +37,29 @@ check_lc:
     pop ax
     ret
 
+check_down:
+    mov ah,02h
+    xor bh,bh
+    mov dh,[block_y]
+    mov dl,[block_x]
+    inc dh
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    cmp al,178
+    jne no_coll
+
+    pop ax
+    ret
+
 
 check_coll:
     ; Se checkean las colisiones de
     ; la parte inferiror del bloque
 
     mov dh,[block_y]
-
-    call fix_ycoll ; Si nos pasamos del limite
-                   ; del juego esto lo arregla
 
     cmp dh,18
     je coll_down ; Si llegamos abajo tenemos que generar un nuevo bloque
@@ -62,17 +76,6 @@ check_coll:
     cmp al,178
     je coll_down
 
-    ret
-
-fix_ycoll:
-    cmp dh,18
-    jg y_issue
-
-    ret
-
-y_issue:
-    mov dh,18
-    mov [block_y],dh
     ret
 
 coll_down:

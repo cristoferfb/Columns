@@ -1,5 +1,10 @@
 down:
+    call check_down
+
     mov al,[block_y]
+
+    cmp al,18
+    je no_move
 
     inc al
     mov [block_y],al
