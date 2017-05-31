@@ -11,6 +11,7 @@ segment .text
 %include "core/randomn.asm"
 %include "core/gravity.asm"
 %include "core/collChec.asm"
+%include "core/chekFiel.asm"
 %include "core/drawGame.asm"
 %include "core/startGam.asm"
 %include "core/genBlock.asm"

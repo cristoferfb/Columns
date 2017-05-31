@@ -15,8 +15,8 @@ do_gravity:
 
     mov al,[block_y]      ; Obtenemos la posicion actual en y
 
-    cmp al,18
-    je no_gravity
+    cmp al,18             ; No aplicamos gravedad si nos
+    je no_gravity         ; encontramos al final del campo
 
     inc al                ; Procedemos a hacer efectiva la
     mov [block_y],al      ; gravedad

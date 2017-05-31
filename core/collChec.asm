@@ -97,6 +97,8 @@ coll_down:
 
     call draw_block     ; Se dibuja el bloque por ultima vez
 
+    call check_field    ; Comprobamos si se deben eliminar bloques
+
     call use_block      ; se asigna el bloque en espera como el actual
 
     call generate_block ; Se genera el siguiente bloque
