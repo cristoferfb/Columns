@@ -18,6 +18,9 @@ check_rc:
     pop ax
     ret
 
+no_coll:
+    ret
+
 check_lc:
     ; Checkeamos las colisiones al
     ; lado izquierdo del bloque
@@ -125,6 +128,3 @@ last_move:
     mov al,1              ; Se desactiva la posibilidad
     mov [collision],al    ; de otro last_move
     jmp game_loop
-
-no_coll:
-    ret

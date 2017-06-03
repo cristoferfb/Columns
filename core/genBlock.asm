@@ -66,3 +66,7 @@ new_block:
 
 
     ret
+
+quit:
+    mov  ah,00h  ; Terminamos la
+    int  21h     ; aplicacion

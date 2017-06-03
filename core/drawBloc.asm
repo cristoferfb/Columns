@@ -5,29 +5,31 @@ draw_block:
     mov ah,02h
     mov dh,[oblock_y]
     mov dl,[oblock_x]
+    mov cx,1
+    xor bl,bl
     int 10h
 
-    mov ah,02h
-    mov dl,0
-    int 21h
+    mov ah,09h
+    mov al,0
+    int 10h
 
     mov ah,02h
     mov dl,[oblock_x]
     dec dh
     int 10h
 
-    mov ah,02h
-    mov dl,0
-    int 21h
+    mov ah,09h
+    mov al,0
+    int 10h
 
     mov ah,02h
     mov dl,[oblock_x]
     dec dh
     int 10h
 
-    mov ah,02h
-    mov dl,0
-    int 21h
+    mov ah,09h
+    mov al,0
+    int 10h
 
 
     ; Dibujamos la nueva posicion

@@ -25,3 +25,9 @@ do_gravity:
 
 no_gravity:
     ret
+
+gravity_all:
+
+    ; do it
+
+    jmp check_field
