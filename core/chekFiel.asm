@@ -25,7 +25,14 @@ check_pos:
     xor ah,ah
     mov [match_count],ah  ; Reseteamos el match_count
 
+    call check_hor
+
+    mov byte [match_count],0
+    mov dl,[check_x]
+    mov dh,[check_y]
+
     call check_ver
+
 
     mov dl,[check_x]
     mov dh,[check_y]
@@ -35,6 +42,48 @@ check_pos:
     int 10h
 
     jmp check_loop
+
+check_hor:
+    mov ah,02h
+    inc dl
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+
+    cmp ah,al
+    jne potential_hmatch
+
+    ret
+
+potential_hmatch:
+    pop cx
+    dec dl
+
+    jmp hmatch_loop
+
+hmatch_loop:
+
+    mov al,[match_count]
+    inc al
+    mov [match_count],al
+
+    push dx
+
+    mov ah,02h
+    dec dl
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+    cmp al,ah
+    je hmatch_loop
+
+    jmp check_match
 
 check_ver:
     mov ah,02h   ; Nos movemos a la pieza
