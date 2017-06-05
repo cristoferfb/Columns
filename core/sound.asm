@@ -2,13 +2,13 @@ match_sound:
     mov CX,400  ; frecuencia en Hz
     call STARTSOUND
 
-    mov CX,5
+    mov CX,3
     call sound_delay
 
     mov CX,650  ; frecuencia en Hz
     call STARTSOUND
 
-    mov CX,5
+    mov CX,3
     call sound_delay
 
     call STOPSOUND
