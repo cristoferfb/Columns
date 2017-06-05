@@ -31,7 +31,11 @@ segment .data
 
     collision db 0  ; Para saber si se esta colisionando con algo
 
-    slowness db 10  ; lentitud a la que va la gavedad
+    slowness db 10  ; lentitud a la que va la "gavedad"
+
+    lv_count db 0  ; contador para subir la velocidad del juego
+
+    gravi_size db 0  ; Cuantos espacios tiene que caer un bloque
 
     block_color_1 db 0  ; Estos seran los colores
     block_color_2 db 0  ; que componen a un bloque
@@ -55,8 +59,11 @@ segment .data
     check_x db 0  ; Esta es la posicion que
     check_y db 0  ; esta siendo checkeada
 
-    gravi_size db 0  ; Cuantos espacios tiene que caer un bloque
+    points db 0  ; Puntaje del jugador
+
+    points_assci db '000$'; Puntaje del jugador en forma de string
 
     ; Lo que sigue solo son los textos del juego
 
     msg_next db 'Siguiente:','$'
+    msg_point db 'Puntaje:','$'

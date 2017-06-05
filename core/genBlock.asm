@@ -64,6 +64,30 @@ new_block:
     mov [block_y],dh
     mov [oblock_y],dh
 
+    mov al,[lv_count]
+    inc al
+    mov [lv_count],al
+
+    cmp al,5
+    je lv_up
+
+    ret
+
+lv_up:
+
+    mov al,[slowness]
+
+    cmp al,1
+    je no_lv_up
+
+    dec al
+    mov [slowness],al
+
+    mov byte [lv_count],0
+
+    ret
+
+no_lv_up:
     ret
 
 quit:

@@ -286,6 +286,11 @@ clear_match:
     mov cx,1
     int 10h
 
+    mov al,[points]
+    add al,11
+    sub al,[slowness]
+    mov [points],al
+
     mov al,[stack_count]
     dec al
     mov [stack_count],al

@@ -9,5 +9,7 @@ start_game:
 
     call new_block       ; Posicionamos el nuevo bloque
 
+    call draw_points     ; Dibujamos el puntaje
+
     call game_loop       ; Comenzamos el juego
     ret

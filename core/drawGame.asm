@@ -66,6 +66,15 @@ draw_ui:
     lea si,[msg_next]
     call draw_text
 
+    mov ah,02h
+    xor bh,bh
+    mov dh,6
+    mov dl,7
+    int 10h
+
+    lea si,[msg_point]
+    call draw_text
+
     ret
 
 draw_hor_line:    ; Dibuja una linea horizontal
@@ -99,6 +108,46 @@ draw_ver_line:    ; Dibuja una linea vertical
     ret
 
 draw_text:
+    mov dx,si
+    mov ah,09h
+    int 21h
+
+    ret
+
+draw_points:
+    mov al,[points] ; Ponemos el puntaje en el
+    xor ah,ah       ; registro ax
+
+    mov bl,10       ; Lo dividimos por 10 para
+    div bl          ; Obtener su primer digito
+
+    add ah,30h ; Convertimos el digito en su equivalente assci
+
+    mov [points_assci+2],ah  ; Lo guardamos
+
+    xor ah,ah  ; Continuamos haciendo lo mismo
+    div bl     ; con el resto de digitos
+
+    add ah,30h
+
+    mov [points_assci+1],ah
+
+    xor ah,ah
+    div bl
+
+    add ah,30h
+
+    mov [points_assci],ah
+
+    ; Imprimimos el puntaje
+
+    mov ah,02h
+    mov dl,7
+    mov dh,8
+    int 10h
+
+    lea si,[points_assci]
+
     mov dx,si
     mov ah,09h
     int 21h

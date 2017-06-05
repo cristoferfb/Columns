@@ -101,4 +101,6 @@ gravity_coll:
     jmp gravity_loop
 
 end_gravity:
+    call draw_points
+
     jmp check_field
