@@ -8,6 +8,7 @@ segment .text
 %include "core/move.asm"
 %include "core/frame.asm"
 %include "core/delay.asm"
+%include "core/sound.asm"
 %include "core/randomn.asm"
 %include "core/gravity.asm"
 %include "core/collChec.asm"

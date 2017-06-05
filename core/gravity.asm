@@ -102,5 +102,6 @@ gravity_coll:
 
 end_gravity:
     call draw_points
+    call match_sound
 
     jmp check_field

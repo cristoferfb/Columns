@@ -229,10 +229,10 @@ vmatch_loop:
 check_match:
     mov al,[match_count]
 
-    cmp al,2
-    jle no_match
+    cmp al,2     ; Si hay 2 o menos piezas contiguas
+    jle no_match ; no hay match
 
-    jmp effective_match
+    jmp effective_match  ; de lo contrario hay match
 
 effective_match:
     mov al,[match_count]
@@ -244,8 +244,8 @@ effective_match:
     ret
 
 no_match:
-    mov ax,cx
-    xor cx,cx
+    mov ax,cx  ; En el caso de que no haya match tenemos
+    xor cx,cx  ; que eliminar las posiciones de la pila
     mov cl,[match_count]
     jmp no_match_loop
 

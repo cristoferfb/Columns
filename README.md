@@ -28,3 +28,5 @@ esta aplicación.
 
 Los algoritmos para el numero aleatorio y el delay han sido extraidos desde el codigo fuente de aSMtris (los comentarios han sido traducidos) en conformidad con las condiciones de uso ahi descritas, puede encontrar mas informacion acerca de la fuente
 de los algoritmos, su autor y sus condiciones de uso en el siguiente link: [Fuente](http://sebastianmihai.com/main.php?t=96&n=aSMtris-Tetris-in-assembly-language-x86-16-bit)
+
+El algoritmo que reproduce sonido ah sido extraido (pero modificado) desde [Aqui](http://www.edaboard.com/thread182595.html)
