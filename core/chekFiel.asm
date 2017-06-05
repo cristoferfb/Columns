@@ -22,26 +22,80 @@ check_pos:
     int 10h
 
     mov [color_check],ah  ; Guardamos el color a checkear
-    xor ah,ah
-    mov [match_count],ah  ; Reseteamos el match_count
+
+    call reset_data
 
     call check_hor
 
-    mov byte [match_count],0
-    mov dl,[check_x]
-    mov dh,[check_y]
+    call reset_data
 
     call check_ver
 
+    call reset_data
 
-    mov dl,[check_x]
-    mov dh,[check_y]
+    call check_diag1
+
+    call reset_data
+
+    ;call check_diag2
 
     mov ah,02h   ; Avanzamos a la siguiente
     dec dh       ; fila
     int 10h
 
     jmp check_loop
+
+check_diag1:
+    mov ah,02h
+    inc dl
+    inc dh
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+
+    cmp ah,al
+    jne potential_diag1match
+
+    ret
+
+potential_diag1match:
+    pop cx
+    dec dl
+    dec dh
+
+    jmp diag1match_loop
+
+diag1match_loop:
+    mov al,[match_count]
+    inc al
+    mov [match_count],al
+
+    push dx
+
+    mov ah,02h
+    dec dh
+    dec dl
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+    cmp al,ah
+    je diag1match_loop
+
+    jmp check_match
+
+
+reset_data:
+    mov byte [match_count],0
+    mov dl,[check_x]
+    mov dh,[check_y]
+
+    ret
 
 check_hor:
     mov ah,02h
