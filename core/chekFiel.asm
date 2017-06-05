@@ -37,13 +37,59 @@ check_pos:
 
     call reset_data
 
-    ;call check_diag2
+    call check_diag2
+
+    call reset_data
 
     mov ah,02h   ; Avanzamos a la siguiente
     dec dh       ; fila
     int 10h
 
     jmp check_loop
+
+check_diag2:
+    mov ah,02h
+    inc dl
+    dec dh
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+
+    cmp ah,al
+    jne potential_diag2match
+
+    ret
+
+potential_diag2match:
+    pop cx
+    dec dl
+    inc dh
+
+    jmp diag2match_loop
+
+diag2match_loop:
+    mov al,[match_count]
+    inc al
+    mov [match_count],al
+
+    push dx
+
+    mov ah,02h
+    inc dh
+    dec dl
+    int 10h
+
+    mov ah,08h
+    int 10h
+
+    mov al,[color_check]
+    cmp al,ah
+    je diag2match_loop
+
+    jmp check_match
 
 check_diag1:
     mov ah,02h
