@@ -55,6 +55,8 @@ segment .data
     check_x db 0  ; Esta es la posicion que
     check_y db 0  ; esta siendo checkeada
 
+    gravi_size db 0  ; Cuantos espacios tiene que caer un bloque
+
     ; Lo que sigue solo son los textos del juego
 
     msg_next db 'Siguiente:','$'

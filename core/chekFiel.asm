@@ -1,11 +1,9 @@
 check_field:
-    mov ah,02h  ; Nos posicionamos en la ezquina
+    mov ah,02h  ; Nos posicionamos en la esquina
     mov dh,18   ; inferior izquierda para
     mov dl,22   ; comenzar el checkeo del campo
     xor bh,bh   ; de juego.
     int 10h
-
-    jmp check_loop
 
 check_loop:
     mov ah,08h    ; Obtenemos el caracter
@@ -144,5 +142,6 @@ clear_match:
     mov [stack_count],al
 
     cmp al,0
-    je gravity_all
+    je gravity_all   ; Do Gravity here
+
     jmp clear_match

@@ -64,7 +64,6 @@ new_block:
     mov [block_y],dh
     mov [oblock_y],dh
 
-
     ret
 
 quit:
