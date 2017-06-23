@@ -31,9 +31,9 @@ de los algoritmos, su autor y sus condiciones de uso en el siguiente link: [Fuen
 
 El algoritmo que reproduce sonido ah sido extraido (pero modificado) desde [Aqui](http://www.edaboard.com/thread182595.html)
 
-> La programacion es una actividad altamente creativa, asi como un musico tiene sus intrumentos y un pintor su pincel
-> nosotros tenemos a nuestro fiel teclado que nos permite plasmar nuestras emociones en un archivo asi como la propia 
-> emocion por programar, indescriptible sensacion que acompaña cada pulsacion de tecla que poco a poco van construyendo
-> nuestra propia creacion y en ella plasmando nuestra propia identidad, no conosco ningun artista que se reserve sus
-> obras para si mismo y es que esta en la propia naturaleza del ser humano expresar sus sueños y sus anhelos mas grandes
-> de una u otra manera, en nuestro caso atravez de lineas y lineas de codigo.
+> La programación es una actividad altamente creativa, así como un musico tiene sus instrumentos y un pintor su pincel 
+> nosotros tenemos a nuestro fiel teclado que nos permite plasmar nuestras emociones en un archivo así como la propia 
+> emoción  por programar, indescriptible sensación que acompaña cada pulsación de tecla que poco a poco van construyendo
+> nuestra propia creación y en ella plasmando nuestra propia identidad, no conozco ningún artista que se reserve sus obras
+> para si mismo y es que esta en la propia naturaleza del ser humano expresar sus sueños y sus anhelos mas grandes de una
+> u otra manera, en nuestro caso  a través de lineas y lineas de código.
