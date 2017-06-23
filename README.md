@@ -37,4 +37,3 @@ El algoritmo que reproduce sonido ah sido extraido (pero modificado) desde [Aqui
 > nuestra propia creacion y en ella plasmando nuestra propia identidad, no conosco ningun artista que se reserve sus
 > obras para si mismo y es que esta en la propia naturaleza del ser humano expresar sus sueños y sus anhelos mas grandes
 > de una u otra manera, en nuestro caso atravez de lineas y lineas de codigo.
-> si mismo por lo que si usted ve un programa y no su codigo, es por que simplemente fue hecho por 
